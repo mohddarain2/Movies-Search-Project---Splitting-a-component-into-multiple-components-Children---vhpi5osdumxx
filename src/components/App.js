@@ -6,9 +6,20 @@ const App = () => {
     const [inputValue, setInputValue] = useState("");
     const [results, setResult] = useState(null);
 
-    function handleClick(e) {}
+    function handleClick(e) {
+        e.preventDefault()
+        let arr = movies.filter((element) => {
+            return (element.title === inputValue)
+        })
+        setResult(arr)
+        console.log(arr)
+        setInputValue("")
+    }
 
-    function handleChange(e) {}
+    function handleChange(e) {
+        setInputValue(e.target.value)
+        
+    }
 
     return (
         <div id="main">
@@ -25,8 +36,11 @@ const App = () => {
             </form>
             <div id="result">
                 {results &&
-                    results.map((movie) => (
-                        <div className="movie">{movie}</div>
+
+                    results.map((movie,index) => (
+
+                        <div className="movie" key={index}>{movie.title} </div>
+
                     ))}
             </div>
         </div>
