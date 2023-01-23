@@ -8,8 +8,10 @@ const App = () => {
 
     function handleClick(e) {
         e.preventDefault()
+
         let arr = movies.filter((element) => {
-            return element.title.includes(inputValue)
+            //element.title.toLowerCase().includes(inputValue.toLowerCase())
+            return  element.title.toLowerCase().includes(inputValue.toLowerCase())
         })
         setResult(arr)
         console.log(arr)
