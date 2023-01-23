@@ -9,7 +9,7 @@ const App = () => {
     function handleClick(e) {
         e.preventDefault()
         let arr = movies.filter((element) => {
-            return (element.title === inputValue)
+            return element.title.includes(inputValue)
         })
         setResult(arr)
         console.log(arr)
